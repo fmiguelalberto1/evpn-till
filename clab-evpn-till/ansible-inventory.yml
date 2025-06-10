@@ -9,6 +9,10 @@ all:
       hosts:
         clab-evpn-till-host1:
           ansible_host: 172.20.20.3
+        clab-evpn-till-host2:
+          ansible_host: 172.20.20.4
+        clab-evpn-till-host3:
+          ansible_host: 172.20.20.8
     nokia_sros:
       vars:
         ansible_network_os: nokia.sros.md
@@ -19,12 +23,12 @@ all:
         ansible_password: admin
       hosts:
         clab-evpn-till-bng1:
-          ansible_host: 172.20.20.7
-        clab-evpn-till-bng2:
           ansible_host: 172.20.20.2
+        clab-evpn-till-bng2:
+          ansible_host: 172.20.20.9
         clab-evpn-till-olt1:
-          ansible_host: 172.20.20.6
-        clab-evpn-till-ont1:
           ansible_host: 172.20.20.5
+        clab-evpn-till-ont1:
+          ansible_host: 172.20.20.7
         clab-evpn-till-vz1:
-          ansible_host: 172.20.20.4
+          ansible_host: 172.20.20.6

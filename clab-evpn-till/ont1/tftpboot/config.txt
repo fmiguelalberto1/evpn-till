@@ -3,7 +3,7 @@
 # Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
 # Configuration format version 24.10 revision 0
 
-# Generated TUE JUN 10 19:27:58 2025 UTC
+# Generated TUE JUN 10 22:12:04 2025 UTC
 
 exit all
 configure
@@ -319,6 +319,12 @@ echo "Service Configuration"
             sap 1/1/c2/1:0 create
                 no shutdown
             exit
+            sap 1/1/c3/1:0 create
+                no shutdown
+            exit
+            sap 1/1/c4/1:0 create
+                no shutdown
+            exit
             no shutdown
         exit
     exit
@@ -344,4 +350,4 @@ echo "System Configuration Mode Configuration"
 
 exit all
 
-# Finished TUE JUN 10 19:27:58 2025 UTC
+# Finished TUE JUN 10 22:12:04 2025 UTC

@@ -51,6 +51,10 @@ topology:
         graph-groupLabelPos: bottom-center
     host1:
       kind: linux
+    host2:
+      kind: linux
+    host3:
+      kind: linux 
       labels:
         graph-posX: "525"
         graph-posY: "225"
@@ -63,3 +67,5 @@ topology:
     - endpoints: [ "bng2:eth3", "olt1:eth2" ]
     - endpoints: [ "olt1:eth3", "ont1:eth1" ]
     - endpoints: [ "ont1:eth2", "host1:eth1" ]
+    - endpoints: [ "ont1:eth3", "host2:eth1" ] 
+    - endpoints: [ "ont1:eth4", "host3:eth1" ]
