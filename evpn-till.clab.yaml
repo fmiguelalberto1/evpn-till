@@ -1,0 +1,65 @@
+name: evpn-till
+
+topology:
+  defaults:
+  kinds:
+    nokia_sros:
+      image: vrnetlab/nokia_sros:24.10.R2
+      license: ../license-sros-24.txt
+    linux:
+      image: fmiguelalberto/ubuntu-miguel4:latest
+  nodes:
+    bng1:
+      #sr-1
+      kind: nokia_sros
+      type: sr-1
+      labels:
+        graph-posX: "865"
+        graph-posY: "195"
+        graph-groupLabelPos: bottom-center
+    bng2:
+      #sr-1
+      kind: nokia_sros
+      type: sr-1
+      labels:
+        graph-posX: "865"
+        graph-posY: "275"
+        graph-groupLabelPos: bottom-center
+    vz1:
+      #sr-1  
+      kind: nokia_sros
+      type: sr-1
+      labels:
+        graph-posX: "985"
+        graph-posY: "225"
+        graph-groupLabelPos: bottom-center
+    olt1:
+      # sr-1
+      kind: nokia_sros
+      type: sr-1
+      labels:
+        graph-posX: "715"
+        graph-posY: "225"
+        graph-groupLabelPos: bottom-center
+    ont1:
+      # sr-1
+      kind: nokia_sros
+      type: sr-1
+      labels:
+        graph-posX: "615"
+        graph-posY: "225"
+        graph-groupLabelPos: bottom-center
+    host1:
+      kind: linux
+      labels:
+        graph-posX: "525"
+        graph-posY: "225"
+        graph-groupLabelPos: bottom-center
+  links:
+    - endpoints: [ "bng1:eth2", "bng2:eth2" ]
+    - endpoints: [ "bng1:eth1", "vz1:eth1" ]
+    - endpoints: [ "bng2:eth1", "vz1:eth2" ]
+    - endpoints: [ "bng1:eth3", "olt1:eth1" ]
+    - endpoints: [ "bng2:eth3", "olt1:eth2" ]
+    - endpoints: [ "olt1:eth3", "ont1:eth1" ]
+    - endpoints: [ "ont1:eth2", "host1:eth1" ]

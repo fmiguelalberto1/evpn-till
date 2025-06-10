@@ -1,0 +1,314 @@
+{
+  "name": "evpn-till",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-5698e46c424e",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "bng1": {
+      "index": "0",
+      "shortname": "bng1",
+      "longname": "clab-evpn-till-bng1",
+      "fqdn": "bng1.evpn-till.io",
+      "group": "",
+      "labdir": "/home/miguel/clab/evpn-till/clab-evpn-till/bng1",
+      "kind": "nokia_sros",
+      "image": "vrnetlab/nokia_sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.7",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::7",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-5698e46c424e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_sros",
+        "clab-node-lab-dir": "/home/miguel/clab/evpn-till/clab-evpn-till/bng1",
+        "clab-node-longname": "clab-evpn-till-bng1",
+        "clab-node-name": "bng1",
+        "clab-node-type": "sr-1",
+        "clab-owner": "miguel",
+        "clab-topo-file": "/home/miguel/clab/evpn-till/evpn-till.clab.yaml",
+        "containerlab": "evpn-till"
+      },
+      "port-bindings": [
+      ]
+    },
+    "bng2": {
+      "index": "1",
+      "shortname": "bng2",
+      "longname": "clab-evpn-till-bng2",
+      "fqdn": "bng2.evpn-till.io",
+      "group": "",
+      "labdir": "/home/miguel/clab/evpn-till/clab-evpn-till/bng2",
+      "kind": "nokia_sros",
+      "image": "vrnetlab/nokia_sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-5698e46c424e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_sros",
+        "clab-node-lab-dir": "/home/miguel/clab/evpn-till/clab-evpn-till/bng2",
+        "clab-node-longname": "clab-evpn-till-bng2",
+        "clab-node-name": "bng2",
+        "clab-node-type": "sr-1",
+        "clab-owner": "miguel",
+        "clab-topo-file": "/home/miguel/clab/evpn-till/evpn-till.clab.yaml",
+        "containerlab": "evpn-till"
+      },
+      "port-bindings": [
+      ]
+    },
+    "host1": {
+      "index": "2",
+      "shortname": "host1",
+      "longname": "clab-evpn-till-host1",
+      "fqdn": "host1.evpn-till.io",
+      "group": "",
+      "labdir": "/home/miguel/clab/evpn-till/clab-evpn-till/host1",
+      "kind": "linux",
+      "image": "fmiguelalberto/ubuntu-miguel4:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-5698e46c424e",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/miguel/clab/evpn-till/clab-evpn-till/host1",
+        "clab-node-longname": "clab-evpn-till-host1",
+        "clab-node-name": "host1",
+        "clab-node-type": "",
+        "clab-owner": "miguel",
+        "clab-topo-file": "/home/miguel/clab/evpn-till/evpn-till.clab.yaml",
+        "containerlab": "evpn-till"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "olt1": {
+      "index": "3",
+      "shortname": "olt1",
+      "longname": "clab-evpn-till-olt1",
+      "fqdn": "olt1.evpn-till.io",
+      "group": "",
+      "labdir": "/home/miguel/clab/evpn-till/clab-evpn-till/olt1",
+      "kind": "nokia_sros",
+      "image": "vrnetlab/nokia_sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.6",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::6",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-5698e46c424e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_sros",
+        "clab-node-lab-dir": "/home/miguel/clab/evpn-till/clab-evpn-till/olt1",
+        "clab-node-longname": "clab-evpn-till-olt1",
+        "clab-node-name": "olt1",
+        "clab-node-type": "sr-1",
+        "clab-owner": "miguel",
+        "clab-topo-file": "/home/miguel/clab/evpn-till/evpn-till.clab.yaml",
+        "containerlab": "evpn-till"
+      },
+      "port-bindings": [
+      ]
+    },
+    "ont1": {
+      "index": "4",
+      "shortname": "ont1",
+      "longname": "clab-evpn-till-ont1",
+      "fqdn": "ont1.evpn-till.io",
+      "group": "",
+      "labdir": "/home/miguel/clab/evpn-till/clab-evpn-till/ont1",
+      "kind": "nokia_sros",
+      "image": "vrnetlab/nokia_sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::5",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-5698e46c424e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_sros",
+        "clab-node-lab-dir": "/home/miguel/clab/evpn-till/clab-evpn-till/ont1",
+        "clab-node-longname": "clab-evpn-till-ont1",
+        "clab-node-name": "ont1",
+        "clab-node-type": "sr-1",
+        "clab-owner": "miguel",
+        "clab-topo-file": "/home/miguel/clab/evpn-till/evpn-till.clab.yaml",
+        "containerlab": "evpn-till"
+      },
+      "port-bindings": [
+      ]
+    },
+    "vz1": {
+      "index": "5",
+      "shortname": "vz1",
+      "longname": "clab-evpn-till-vz1",
+      "fqdn": "vz1.evpn-till.io",
+      "group": "",
+      "labdir": "/home/miguel/clab/evpn-till/clab-evpn-till/vz1",
+      "kind": "nokia_sros",
+      "image": "vrnetlab/nokia_sros:24.10.R2",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-5698e46c424e",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_sros",
+        "clab-node-lab-dir": "/home/miguel/clab/evpn-till/clab-evpn-till/vz1",
+        "clab-node-longname": "clab-evpn-till-vz1",
+        "clab-node-name": "vz1",
+        "clab-node-type": "sr-1",
+        "clab-owner": "miguel",
+        "clab-topo-file": "/home/miguel/clab/evpn-till/evpn-till.clab.yaml",
+        "containerlab": "evpn-till"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "bng1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:fd:4a:19",
+        "peer": "z"
+      },
+      "z": {
+        "node": "bng2",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:e7:04:e8",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:1f:eb:ed",
+        "peer": "z"
+      },
+      "z": {
+        "node": "vz1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:05:1c:db",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:42:6a:e3",
+        "peer": "z"
+      },
+      "z": {
+        "node": "vz1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:47:bd:c2",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng1",
+        "interface": "eth3",
+        "mac": "aa:c1:ab:24:84:f3",
+        "peer": "z"
+      },
+      "z": {
+        "node": "olt1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:cc:db:36",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "bng2",
+        "interface": "eth3",
+        "mac": "aa:c1:ab:c9:03:69",
+        "peer": "z"
+      },
+      "z": {
+        "node": "olt1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:07:36:a1",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "olt1",
+        "interface": "eth3",
+        "mac": "aa:c1:ab:c4:cc:2d",
+        "peer": "z"
+      },
+      "z": {
+        "node": "ont1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:e3:95:97",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "ont1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:45:2c:1e",
+        "peer": "z"
+      },
+      "z": {
+        "node": "host1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:9a:cd:b5",
+        "peer": "a"
+      }
+    }
+  ]
+}

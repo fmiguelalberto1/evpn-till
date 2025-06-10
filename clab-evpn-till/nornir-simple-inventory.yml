@@ -1,0 +1,31 @@
+---
+host1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.3
+bng1:
+    username: admin
+    password: admin
+    platform: nokia_sros
+    hostname: 172.20.20.7
+bng2:
+    username: admin
+    password: admin
+    platform: nokia_sros
+    hostname: 172.20.20.2
+olt1:
+    username: admin
+    password: admin
+    platform: nokia_sros
+    hostname: 172.20.20.6
+ont1:
+    username: admin
+    password: admin
+    platform: nokia_sros
+    hostname: 172.20.20.5
+vz1:
+    username: admin
+    password: admin
+    platform: nokia_sros
+    hostname: 172.20.20.4

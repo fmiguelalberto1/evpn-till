@@ -1,0 +1,462 @@
+# TiMOS-B-24.10.R2 both/x86_64 Nokia 7750 SR Copyright (c) 2000-2024 Nokia.
+# All rights reserved. All use subject to applicable license agreements.
+# Built on Wed Dec 18 23:49:33 UTC 2024 by builder in /builds/2410B/R2/panos/main/sros
+# Configuration format version 24.10 revision 0
+
+# Generated TUE JUN 10 19:27:31 2025 UTC
+
+exit all
+configure
+#--------------------------------------------------
+echo "System Configuration"
+#--------------------------------------------------
+    system
+        name "vz1"
+        config-backup 5
+        dns
+            address-pref ipv6-first
+        exit
+        netconf
+            listen
+                no shutdown
+            exit
+        exit
+        snmp
+            streaming
+                no shutdown
+            exit
+            packet-size 9216
+        exit
+        time
+            sntp
+                shutdown
+            exit
+            zone UTC
+        exit
+        bluetooth
+            module A
+            exit
+            power off
+        exit
+    exit
+#--------------------------------------------------
+echo "System Security Configuration"
+#--------------------------------------------------
+    system
+        security
+            profile "administrative"
+                netconf
+                    base-op-authorization
+                        action
+                        cancel-commit
+                        close-session
+                        commit
+                        copy-config
+                        create-subscription
+                        delete-config
+                        discard-changes
+                        edit-config
+                        get
+                        get-config
+                        get-data
+                        get-schema
+                        kill-session
+                        lock
+                        validate
+                    exit
+                exit
+                entry 10
+                    match "configure system security"
+                    action permit
+                exit
+                entry 20
+                    match "show system security"
+                    action permit
+                exit
+                entry 30
+                    match "tools perform security"
+                    action permit
+                exit
+                entry 40
+                    match "tools dump security"
+                    action permit
+                exit
+                entry 42
+                    match "tools dump system security"
+                    action permit
+                exit
+                entry 50
+                    match "admin system security"
+                    action permit
+                exit
+                entry 100
+                    match "configure li"
+                    action deny
+                exit
+                entry 110
+                    match "show li"
+                    action deny
+                exit
+                entry 111
+                    match "clear li"
+                    action deny
+                exit
+                entry 112
+                    match "tools dump li"
+                    action deny
+                exit
+            exit
+            user "admin"
+                password "$2y$10$TQrZlpBDra86.qoexZUzQeBXDY1FcdDhGWdD9lLxMuFyPVSm0OGy6"
+                access console ftp netconf grpc
+                no restricted-to-home
+                console
+                    member "administrative"
+                exit
+            exit
+            snmp
+                community "76HzdddhlPpRo1Vql+ZB5spLqccgYQ==" hash2 r version v2c
+            exit
+            per-peer-queuing
+            telnet
+            exit
+        exit
+    exit
+#--------------------------------------------------
+echo "System Login Control Configuration"
+#--------------------------------------------------
+    system
+        login-control
+            ssh
+                inbound-max-sessions 30
+            exit
+        exit
+    exit
+#--------------------------------------------------
+echo "Log Configuration"
+#--------------------------------------------------
+    log
+        log-id 23 name "23"
+            from debug-trace
+            to memory
+            no shutdown
+        exit
+    exit
+#--------------------------------------------------
+echo "System gRPC Configuration"
+#--------------------------------------------------
+    system
+        grpc
+            allow-unsecure-connection
+            rib-api
+                no shutdown
+            exit
+            no shutdown
+        exit
+    exit
+#--------------------------------------------------
+echo "Oper-Groups (Declarations) Configuration"
+#--------------------------------------------------
+    service
+    exit
+#--------------------------------------------------
+echo "Card Configuration"
+#--------------------------------------------------
+    card 1
+        card-type iom-1
+        mda 1
+            mda-type me12-100gb-qsfp28
+            no shutdown
+        exit
+        no shutdown
+    exit
+#--------------------------------------------------
+echo "Connector Configuration"
+#--------------------------------------------------
+    port 1/1/c1
+        connector
+            breakout c1-100g
+        exit
+        no shutdown
+    exit
+    port 1/1/c2
+        connector
+            breakout c1-100g
+        exit
+        no shutdown
+    exit
+    port 1/1/c3
+        connector
+            breakout c1-100g
+        exit
+        no shutdown
+    exit
+    port 1/1/c4
+        connector
+            breakout c1-100g
+        exit
+        no shutdown
+    exit
+    port 1/1/c5
+        connector
+            breakout c1-100g
+        exit
+        no shutdown
+    exit
+    port 1/1/c6
+        connector
+            breakout c1-100g
+        exit
+        no shutdown
+    exit
+    port 1/1/c7
+        shutdown
+    exit
+    port 1/1/c8
+        shutdown
+    exit
+    port 1/1/c9
+        shutdown
+    exit
+    port 1/1/c10
+        shutdown
+    exit
+    port 1/1/c11
+        shutdown
+    exit
+    port 1/1/c12
+        shutdown
+    exit
+#--------------------------------------------------
+echo "Port Configuration"
+#--------------------------------------------------
+    port 1/1/c1/1
+        ethernet
+            mode access
+            encap-type dot1q
+        exit
+        no shutdown
+    exit
+    port 1/1/c2/1
+        ethernet
+            mode access
+            encap-type dot1q
+        exit
+        no shutdown
+    exit
+    port 1/1/c3/1
+        ethernet
+            mode hybrid
+            encap-type dot1q
+        exit
+        no shutdown
+    exit
+    port 1/1/c4/1
+        ethernet
+            dot1x
+                tunneling
+            exit
+            mode hybrid
+            encap-type dot1q
+        exit
+        no shutdown
+    exit
+    port 1/1/c5/1
+        ethernet
+        exit
+        no shutdown
+    exit
+    port 1/1/c6/1
+        ethernet
+            mode hybrid
+            encap-type dot1q
+        exit
+        no shutdown
+    exit
+    port A/1
+    exit
+    port A/3
+        shutdown
+        ethernet
+        exit
+    exit
+    port A/4
+        shutdown
+    exit
+#--------------------------------------------------
+echo "System Sync-If-Timing Configuration"
+#--------------------------------------------------
+    system
+        sync-if-timing
+            begin
+            commit
+        exit
+    exit
+#--------------------------------------------------
+echo "LAG Configuration"
+#--------------------------------------------------
+    lag 1
+        mode access
+        encap-type dot1q
+        port 1/1/c1/1
+        port 1/1/c2/1
+        lacp active administrative-key 32768
+        no shutdown
+    exit
+#--------------------------------------------------
+echo "Management Router Configuration"
+#--------------------------------------------------
+    router management
+    exit
+
+#--------------------------------------------------
+echo "Router (Network Side) Configuration"
+#--------------------------------------------------
+    router Base
+        interface "system"
+            no shutdown
+        exit
+    exit
+
+#--------------------------------------------------
+echo "Subscriber-mgmt Configuration"
+#--------------------------------------------------
+    subscriber-mgmt
+        authentication-policy "rtc" create
+        exit
+        ipoe-session-policy "def" create
+        exit
+        ipoe-session-policy "ipoe-def-pol" create
+        exit
+        sla-profile "NTW" create
+        exit
+        sub-profile "NTW" create
+            sla-profile-map
+                use-direct-map-as-default
+            exit
+            egress
+                agg-rate-limit 10000000
+            exit
+        exit
+        sub-ident-policy "test" create
+            sub-profile-map
+                use-direct-map-as-default
+            exit
+            sla-profile-map
+                use-direct-map-as-default
+            exit
+        exit
+    exit
+#--------------------------------------------------
+echo "Service Configuration"
+#--------------------------------------------------
+    service
+        customer 1 name "1" create
+            description "Default customer"
+        exit
+        vprn 10 name "10" customer 1 create
+            subscriber-interface "bng" create
+                group-interface "olt1" create
+                exit
+            exit
+            interface "mydhcp" create
+            exit
+            dhcp
+                local-dhcp-server "mydhcp" create
+                exit
+            exit
+        exit
+        vprn 10 name "10" customer 1 create
+            interface "mydhcp" create
+                address 10.151.151.151/32
+                local-dhcp-server "mydhcp"
+                loopback
+            exit
+            subscriber-interface "bng" create
+                address 100.65.0.2/24 gw-ip-address 100.65.0.1
+                group-interface "olt1" create
+                    srrp-enabled-routing
+                    dhcp
+                        server 10.151.151.151
+                        trusted
+                        lease-populate 131071
+                        gi-address 100.65.0.2
+                        no shutdown
+                    exit
+                    ipoe-session
+                        ipoe-session-policy "def"
+                        sap-session-limit 131071
+                        no shutdown
+                    exit
+                    sap lag-1:10 create
+                        sub-sla-mgmt
+                            def-sub-profile "NTW"
+                            def-sla-profile "NTW"
+                            multi-sub-sap 131071
+                            no shutdown
+                        exit
+                    exit
+                    sap lag-1:4093 create
+                    exit
+                    srrp 4093 create
+                        message-path lag-1:4093
+                        priority 200
+                        no shutdown
+                    exit
+                exit
+            exit
+            bgp-ipvpn
+                mpls
+                    route-distinguisher 65001:10
+                    vrf-target target:65001:10
+                    no shutdown
+                exit
+            exit
+            no shutdown
+        exit
+    exit
+#--------------------------------------------------
+echo "Router (Service Side) Configuration"
+#--------------------------------------------------
+    router Base
+    exit
+
+#--------------------------------------------------
+echo "Local DHCP Server (Services) Configuration"
+#--------------------------------------------------
+    service
+        vprn 10 name "10" customer 1 create
+            dhcp
+                local-dhcp-server "mydhcp" create
+                    use-gi-address
+                    pool "mydhcp" create
+                        subnet 100.65.0.0/24 create
+                            options
+                                subnet-mask 255.255.255.0
+                                default-router 100.65.0.1
+                            exit
+                            address-range 100.65.0.10 100.65.0.20
+                        exit
+                    exit
+                    no shutdown
+                exit
+            exit
+        exit
+    exit
+#--------------------------------------------------
+echo "Log all events for service vprn, log syslog tls-client-profile Configuration"
+#--------------------------------------------------
+    log
+    exit
+#--------------------------------------------------
+echo "System Configuration Mode Configuration"
+#--------------------------------------------------
+    system
+        management-interface
+            configuration-mode classic
+        exit
+    exit
+
+exit all
+
+# Finished TUE JUN 10 19:27:31 2025 UTC
